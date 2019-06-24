@@ -3,7 +3,7 @@ add_action( 'init', function () {
 	register_post_type( 'school', [
 		'has_archive'   => true,
 		'public'        => true,
-		'supports'      => [ 'title', 'editor' ],
+		'supports'      => [ 'title', 'editor', 'thumbnail' ],
 		'label'         => '学校',
 		'menu_icon'     => 'dashicons-media-default',
 		'show_in_rest'  => true,
