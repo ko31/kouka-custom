@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin name: kouka custom
- * Description: Snow Monkey Extension for Kouka
+ * Description: The extension plugin for KOUKA
  * Version: 0.1.0
  *
  * @package kouka-custom
