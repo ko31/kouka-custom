@@ -25,6 +25,12 @@ add_action( 'cmb2_admin_init', function () {
 	] );
 
 	$cmb->add_field( [
+		'name' => '学校サイトURL',
+		'id'   => $prefix . 'school_url',
+		'type' => 'text',
+	] );
+
+	$cmb->add_field( [
 		'name' => '郵便番号',
 		'id'   => $prefix . 'zip',
 		'type' => 'text',
@@ -65,6 +71,34 @@ add_action( 'cmb2_admin_init', function () {
 	] );
 
 	/**
+	 * Sources group
+	 */
+	$sources_id = $cmb->add_field( [
+		'id'          => $prefix . 'sources',
+		'type'        => 'group',
+		'description' => '音源',
+		'options'     => array(
+			'group_title'   => '音源 {#}',
+			'add_button'    => '音源を追加',
+			'remove_button' => '音源を削除',
+			'sortable'      => true,
+		),
+	] );
+
+	$cmb->add_group_field( $sources_id, [
+		'name' => 'タイトル',
+		'id'   => 'title',
+		'type' => 'text',
+	] );
+
+	$cmb->add_group_field( $sources_id, [
+		'name' => 'URL',
+		'id'   => 'url',
+		'type' => 'text',
+		'desc' => '音源の URL を入力してください',
+	] );
+
+	/**
 	 * Notes group
 	 */
 	$notes_id = $cmb->add_field( [
@@ -81,7 +115,7 @@ add_action( 'cmb2_admin_init', function () {
 
 	$cmb->add_group_field( $notes_id, [
 		'name' => '備考',
-		'id'   => 'note',
+		'id'   => 'description',
 		'type' => 'textarea',
 	] );
 
@@ -98,7 +132,7 @@ add_action( 'cmb2_admin_init', function () {
 	$links_id = $cmb->add_field( [
 		'id'          => $prefix . 'links',
 		'type'        => 'group',
-		'description' => 'リンク',
+		'description' => '関連リンク',
 		'options'     => array(
 			'group_title'   => 'リンク {#}',
 			'add_button'    => 'リンクを追加',
