@@ -9,7 +9,7 @@ add_action( 'cmb2_admin_init', function () {
 	$cmb = new_cmb2_box( [
 		'id'           => $prefix . 'metabox_school',
 		'title'        => '学校属性',
-		'object_types' => [ 'school'],
+		'object_types' => [ 'school' ],
 	] );
 
 	$cmb->add_field( [

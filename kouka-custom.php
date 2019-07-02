@@ -1,4 +1,6 @@
 <?php
+//				print_r( $_POST['type'] );
+//				print_r( implode( ',', $_POST['type'] ) );
 /**
  * Plugin name: kouka custom
  * Description: The extension plugin for KOUKA
@@ -20,7 +22,7 @@ if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->t
 /**
  * Include custom libraries.
  */
-foreach ( [ 'inc' ] as $dir_name ) {
+foreach ( [ 'inc', 'plugins' ] as $dir_name ) {
 	$dir = __DIR__ . '/' . $dir_name;
 	if ( is_dir( $dir ) ) {
 		foreach ( scandir( $dir ) as $file ) {
