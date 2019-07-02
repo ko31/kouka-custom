@@ -43,7 +43,11 @@
 </ul>
 
 <h2>校歌</h2>
-<p>作詞：大木惇夫　作曲：団伊玖磨</p>
+<p>
+    作詞：<?php echo esc_html( kouka_term_name(get_the_id(), 'lyricist') ); ?>　
+    作曲：<?php echo esc_html( kouka_term_name(get_the_id(), 'composer') ); ?>
+</p>
+
 <blockquote class="wp-block-quote"><p>
 		<?php
 		echo nl2br( ( get_post_meta( get_the_ID(), '_lyrics', true ) ) );
