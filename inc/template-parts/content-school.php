@@ -55,6 +55,24 @@
 </blockquote>
 
 <?php
+// 音源
+if ( $_sources = get_post_meta( get_the_ID(), '_sources', true ) ) :
+	?>
+    <ul>
+		<?php
+		foreach ( $_sources as $_source ) :
+			?>
+            <li><a href="<?php echo esc_url( $_source['url'] ); ?>"
+                   target="_blank"><?php echo esc_html( $_source['title'] ); ?></a></li>
+		<?php
+		endforeach;
+		?>
+    </ul>
+<?php
+endif;
+?>
+
+<?php
 // Youtube
 if ( $_movies = get_post_meta( get_the_ID(), '_movies', true ) ) :
 	global $wp_embed;
@@ -72,24 +90,6 @@ if ( $_movies = get_post_meta( get_the_ID(), '_movies', true ) ) :
         </figure>
 	<?php
 	endforeach;
-endif;
-?>
-
-<?php
-// 音源
-if ( $_sources = get_post_meta( get_the_ID(), '_sources', true ) ) :
-	?>
-    <ul>
-		<?php
-		foreach ( $_sources as $_source ) :
-			?>
-            <li><a href="<?php echo esc_url( $_source['url'] ); ?>"
-                   target="_blank"><?php echo esc_html( $_source['title'] ); ?></a></li>
-		<?php
-		endforeach;
-		?>
-    </ul>
-<?php
 endif;
 ?>
 
