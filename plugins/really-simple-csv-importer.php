@@ -8,12 +8,12 @@ add_filter( 'really_simple_csv_importer_save_meta', function ( $meta, $post, $is
 	// Movies
 	$_movies = [];
 	for ( $i = 1; $i <= 2; $i ++ ) {
-		if ( ! empty( $meta[ 'youtube' . $i ] ) ) {
+		if ( ! empty( $meta[ 'movie' . $i ] ) ) {
 			$_movies[] = [
-				'url' => $meta[ 'youtube' . $i ]
+				'url' => $meta[ 'movie' . $i ]
 			];
 		}
-		unset( $meta[ 'youtube' . $i ] );
+		unset( $meta[ 'movie' . $i ] );
 	}
 	if ( $_movies ) {
 		$meta['_movies'] = $_movies;
