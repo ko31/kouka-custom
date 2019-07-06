@@ -20,6 +20,18 @@ if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->t
 }
 
 /**
+ * Snow Monkey テンプレートのルートディレクトリにプラグイン配下も追加
+ */
+add_filter(
+	'snow_monkey_template_part_root_hierarchy',
+	function ( $hierarchy ) {
+		$hierarchy[] = untrailingslashit( __DIR__ ) . '/view';
+
+		return $hierarchy;
+	}
+);
+
+/**
  * Include custom libraries.
  */
 foreach ( [ 'inc', 'plugins' ] as $dir_name ) {
