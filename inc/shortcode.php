@@ -98,11 +98,13 @@ add_shortcode( 'kouka_lyricist_tags', function () {
 		return;
 	}
 
-	$html = '';
+	$html = '<div class="c-entry-tags">';
 
 	foreach ( $lyricists as $row ) {
-		$html .= sprintf( '<a href="%s" class="tag-cloud-link">%s</a></td>', get_term_link( $row ), $row->name );
+		$html .= sprintf( '<a href="%s" class="tag-cloud-link lyricist-tag">%s</a></td>', get_term_link( $row ), $row->name );
 	}
+
+	$html .= '</div>';
 
 	return $html;
 } );
@@ -115,11 +117,13 @@ add_shortcode( 'kouka_composer_tags', function () {
 		return;
 	}
 
-	$html = '';
+	$html = '<div class="c-entry-tags">';
 
 	foreach ( $lyricists as $row ) {
-		$html .= sprintf( '<a href="%s" class="tag-cloud-link">%s</a></td>', get_term_link( $row ), $row->name );
+		$html .= sprintf( '<a href="%s" class="tag-cloud-link composer-tag">%s</a></td>', get_term_link( $row ), $row->name );
 	}
+
+	$html .= '</div>';
 
 	return $html;
 } );
