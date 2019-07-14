@@ -42,3 +42,14 @@ foreach ( [ 'inc', 'plugins' ] as $dir_name ) {
 		}
 	}
 }
+
+/**
+ * Get plugin version.
+ *
+ * @return mixed
+ */
+function kouka_version() {
+	$data = get_file_data( __FILE__, [ 'version' => 'Version' ] );
+
+	return $data['version'];
+}

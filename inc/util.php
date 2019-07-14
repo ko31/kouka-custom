@@ -1,7 +1,6 @@
 <?php
-
 /**
- *  Get term name.
+ * Get term name.
  *
  * @param $post_id
  * @param $taxonomy
