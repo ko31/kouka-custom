@@ -1,6 +1,14 @@
 <?php
 
 /**
+ * 学校検索フォームを出力するショートコード
+ */
+add_shortcode( 'kouka_school_search', function () {
+
+	return get_search_form( false );
+} );
+
+/**
  * 都道府県タームの select フォームを出力するショートコード
  */
 add_shortcode( 'kouka_prefecture_select', function () {
@@ -78,6 +86,40 @@ add_shortcode( 'kouka_initial_select', function () {
 	$html .= '</tr>';
 	$html .= '</tbody>';
 	$html .= '</table>';
+
+	return $html;
+} );
+
+/**
+ * 作詞者タグクラウドを出力するショートコード
+ */
+add_shortcode( 'kouka_lyricist_tags', function () {
+	if ( ! $lyricists = get_categories( [ 'taxonomy' => 'lyricist' ] ) ) {
+		return;
+	}
+
+	$html = '';
+
+	foreach ( $lyricists as $row ) {
+		$html .= sprintf( '<a href="%s" class="tag-cloud-link">%s</a></td>', get_term_link( $row ), $row->name );
+	}
+
+	return $html;
+} );
+
+/**
+ * 作曲者タグクラウドを出力するショートコード
+ */
+add_shortcode( 'kouka_composer_tags', function () {
+	if ( ! $lyricists = get_categories( [ 'taxonomy' => 'composer' ] ) ) {
+		return;
+	}
+
+	$html = '';
+
+	foreach ( $lyricists as $row ) {
+		$html .= sprintf( '<a href="%s" class="tag-cloud-link">%s</a></td>', get_term_link( $row ), $row->name );
+	}
 
 	return $html;
 } );
