@@ -19,7 +19,7 @@ add_shortcode( 'kouka_prefecture_select', function () {
 	$html .= '</select>';
 
 	$archive_url = home_url( '/prefecture/' );
-	$html .= <<<JS
+	$html        .= <<<JS
 <script>	
 (function($) {
 	$('#select_prefecture').change(function(){
@@ -32,6 +32,52 @@ add_shortcode( 'kouka_prefecture_select', function () {
 })(jQuery);
 </script>
 JS;
+
+	return $html;
+} );
+
+/**
+ * 頭文字タームの select フォームを出力するショートコード
+ */
+add_shortcode( 'kouka_initial_select', function () {
+
+	$html = '<table class="wp-block-table has-fixed-layout">';
+	$html .= '<tbody>';
+
+	$prev_key = '';
+
+	foreach ( kouka_term_initials() as $_initial ) {
+		$_key  = $_initial[0];
+		$_slug = $_initial[1];
+
+		if ( $prev_key != $_key ) {
+			if ( $prev_key ) {
+				$html .= '</tr>';
+			}
+			$html     .= '<tr>';
+			$prev_key = $_key;
+		}
+
+		$_count = 0;
+		$_name  = '';
+		if ( $_slug ) {
+			$_term  = get_term_by( 'slug', $_slug, 'initial' );
+			$_name  = $_term->name ?: '';
+			$_count = $_term->count ?: '';
+		}
+		$archive_url = home_url( '/initial/' ) . $_slug;
+		if ( $_count && $_name ) {
+			$html .= sprintf( '<td class="registerd"><a href="%s">%s</a>（%s）</td>', $archive_url, $_term->name, $_term->count );
+		} else if ( ! $_name ) {
+			$html .= '<td class="nothing">&nbsp;</td>';
+		} else {
+			$html .= sprintf( '<td class="unregisterd">%s</td>', $_name );
+		}
+	}
+
+	$html .= '</tr>';
+	$html .= '</tbody>';
+	$html .= '</table>';
 
 	return $html;
 } );
