@@ -1,6 +1,4 @@
 <?php
-//				print_r( $_POST['type'] );
-//				print_r( implode( ',', $_POST['type'] ) );
 /**
  * Plugin name: kouka custom
  * Description: The extension plugin for KOUKA
