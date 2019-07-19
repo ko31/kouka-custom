@@ -5,7 +5,20 @@
  */
 add_shortcode( 'kouka_school_search', function () {
 
-	return get_search_form( false );
+	$html        .= <<<HTML
+	<form role="search" method="get" class="p-search-form" action="https://kouka.local/">
+	<label class="screen-reader-text" for="s">検索</label>
+	<div class="c-input-group">
+	<div class="c-input-group__field">
+	<input type="hidden" name="post_type" value="school">
+	<input type="search" placeholder="学校名を入力してください" value="" name="s">
+	</div>
+	<button class="c-input-group__btn">検索</button>
+	</div>
+	</form>	
+HTML;
+
+	return $html;
 } );
 
 /**
