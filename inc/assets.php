@@ -8,4 +8,6 @@ add_action( 'wp_enqueue_scripts', function () {
 		'snow-monkey-blocks',
 		'snow-monkey-snow-monkey-blocks'
 	], kouka_version() );
+
+	wp_enqueue_script( 'kouka', plugins_url( 'assets/js/script.js', dirname( __FILE__ ) ), [ 'jquery' ], kouka_version() );
 } );

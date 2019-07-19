@@ -32,7 +32,7 @@ add_filter(
 /**
  * Include custom libraries.
  */
-foreach ( [ 'inc', 'plugins' ] as $dir_name ) {
+foreach ( [ 'inc', 'plugins', 'themes' ] as $dir_name ) {
 	$dir = __DIR__ . '/' . $dir_name;
 	if ( is_dir( $dir ) ) {
 		foreach ( scandir( $dir ) as $file ) {

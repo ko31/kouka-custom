@@ -1,0 +1,12 @@
+/**
+ * tags
+ */
+.tag-cloud-link {
+    margin: 0 4px 8px 0;
+}
+.tag-cloud-link:before {
+    content: none;
+}
+.tag-cloud-link svg {
+    margin-right: 5px;
+}
