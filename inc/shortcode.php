@@ -5,7 +5,7 @@
  */
 add_shortcode( 'kouka_school_search', function () {
 
-	$html        .= <<<HTML
+	$html = <<<HTML
 	<form role="search" method="get" class="p-search-form" action="https://kouka.local/">
 	<label class="screen-reader-text" for="s">検索</label>
 	<div class="c-input-group">
@@ -25,8 +25,9 @@ HTML;
  * 都道府県タームの select フォームを出力するショートコード
  */
 add_shortcode( 'kouka_prefecture_select', function () {
-	$html = '<select id="select_prefecture">';
-	$html .= sprintf( '<option value="">選択してください</option>' );
+	$html = '<span class="c-select" aria-selected="false">';
+	$html .= '<select id="select_prefecture">';
+	$html .= sprintf( '<option value="">都道府県を選択してください</option>' );
 	foreach ( kouka_term_prefectures() as $_slug ) {
 		$_term = get_term_by( 'slug', $_slug, 'prefecture' );
 		if ( ! $_term ) {
@@ -38,6 +39,8 @@ add_shortcode( 'kouka_prefecture_select', function () {
 		$html .= sprintf( '<option value="%s">%s（%s）</option>', $_slug, $_term->name, $_term->count );
 	}
 	$html .= '</select>';
+	$html .= '<span class="c-select__label"></span>';
+	$html .= '</span>';
 
 	$archive_url = home_url( '/prefecture/' );
 	$html        .= <<<JS
