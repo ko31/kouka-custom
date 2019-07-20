@@ -111,7 +111,13 @@ add_shortcode( 'kouka_lyricist_tags', function () {
 		return;
 	}
 
-	$html = '<div class="c-entry-tags">';
+	$html = <<<HTML
+<div class="c-input-group__field">
+<input type="text" placeholder="作詞者の名前を入力してください" value="" id="lyricist" name="lyricist">
+</div>
+HTML;
+
+	$html .= '<div class="c-entry-tags">';
 
 	foreach ( $lyricists as $row ) {
 		$html .= sprintf( '<a href="%s" class="tag-cloud-link lyricist-tag">%s</a></td>', get_term_link( $row ), $row->name );
@@ -130,7 +136,13 @@ add_shortcode( 'kouka_composer_tags', function () {
 		return;
 	}
 
-	$html = '<div class="c-entry-tags">';
+	$html = <<<HTML
+<div class="c-input-group__field">
+<input type="text" placeholder="作曲者の名前を入力してください" value="" id="composer" name="composer">
+</div>
+HTML;
+
+	$html .= '<div class="c-entry-tags">';
 
 	foreach ( $lyricists as $row ) {
 		$html .= sprintf( '<a href="%s" class="tag-cloud-link composer-tag">%s</a></td>', get_term_link( $row ), $row->name );
