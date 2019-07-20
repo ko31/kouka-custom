@@ -116,7 +116,7 @@ add_shortcode( 'kouka_lyricist_tags', function () {
 
 	$html = <<<HTML
 <div class="c-input-group__field">
-<input type="text" placeholder="作詞者の名前を入力してください" value="" id="lyricist" name="lyricist">
+<input type="text" placeholder="作詞者の名前を入力してください" value="" id="lyricist" name="lyricist" class="c-form-control">
 </div>
 HTML;
 
@@ -141,7 +141,7 @@ add_shortcode( 'kouka_composer_tags', function () {
 
 	$html = <<<HTML
 <div class="c-input-group__field">
-<input type="text" placeholder="作曲者の名前を入力してください" value="" id="composer" name="composer">
+<input type="text" placeholder="作曲者の名前を入力してください" value="" id="composer" name="composer" class="c-form-control">
 </div>
 HTML;
 

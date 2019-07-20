@@ -149,3 +149,35 @@ function kouka_has_table_of_contents() {
 
 	return false;
 }
+
+/**
+ * Get default image.
+ *
+ * @param $type
+ *
+ * @return bool
+ */
+function kouka_default_image( $type ) {
+	$image = '';
+
+	switch ( $type ) {
+		case 'elementary':
+			$image = plugins_url( 'assets/img/default_school_elementary.jpg', 'kouka-custom/kouka-custom.php' );
+			break;
+		case 'junior':
+			$image = plugins_url( 'assets/img/default_school_junior.jpg', 'kouka-custom/kouka-custom.php' );
+			break;
+		case 'senior':
+			$image = plugins_url( 'assets/img/default_school_senior.jpg', 'kouka-custom/kouka-custom.php' );
+			break;
+		case 'university':
+			$image = plugins_url( 'assets/img/default_school_university.jpg', 'kouka-custom/kouka-custom.php' );
+			break;
+		default:
+			break;
+	}
+
+	return $image;
+}
+
+

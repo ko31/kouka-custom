@@ -24,7 +24,7 @@ use Framework\Helper;
 					<?php
 					Helper::get_template_part(
 						'template-parts/loop/entry-summary',
-						'post',
+						'school',
 						[
 							'_entries_layout' => $entries_layout,
 						]
