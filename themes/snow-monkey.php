@@ -16,7 +16,6 @@ add_filter( 'snow_monkey_display_contents_outline', function () {
 add_action(
 	'snow_monkey_entry_meta_items',
 	function () {
-		echo "aaaaa";
 		remove_action( 'snow_monkey_entry_meta_items', 'snow_monkey_entry_meta_items_author', 10 );
 
 
